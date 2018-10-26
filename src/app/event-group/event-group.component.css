@@ -1,0 +1,46 @@
+.event-group-card {
+    margin: 5%;
+    font-size: 15px;
+    color: rgb(90, 91, 91);
+    padding: 0;
+}
+
+.event-list-cards {
+    margin: 5%;
+}
+
+.event-group-title {
+    text-align: center;
+}
+
+.mat-card-header {
+    display: contents;
+}
+
+.event-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.event-group-icon {
+    position: relative;
+    top: 7px;
+    left: 3px;
+}
+
+.link-to-kin {
+    margin-top: 10% !important;
+    border-bottom: 1px solid;
+    padding-bottom: 5%;
+}
+
+.kin-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.event-group-description {
+    color: rgb(255, 77, 77);
+}

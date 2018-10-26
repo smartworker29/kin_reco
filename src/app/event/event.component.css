@@ -1,0 +1,48 @@
+.event-card {
+    font-size: 15px;
+    color: rgb(90, 91, 91);
+}
+
+.mat-card-header {
+    display: contents;
+}
+
+.event-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+  
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.basic-information .text {
+    margin-left: 5%
+}
+
+.event-details .text {
+    margin-left: 5%
+}
+
+.event-details .lower-text {
+        margin-left: calc(5% + 24px)
+    }
+
+.event-details {
+    border-top: 1px solid;
+    padding-top: 1em;
+}
+
+.icon {
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+.link-text {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
