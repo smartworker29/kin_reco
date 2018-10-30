@@ -51,8 +51,11 @@ export class EventComponent implements OnInit {
     if(this.event.min_age == 0 && this.event.max_age == 99) {
       return "Good for all ages";
     }
+    if(this.event.min_age != 0 && this.event.max_age == 99) {
+      return "Good for " + this.event.min_age + " years and above";
+    }
     else {
-      return "Good for " + this.event.min_age + " to " + this.event.max_age + "years";
+      return "Good for " + this.event.min_age + " to " + this.event.max_age + " years";
     } 
   }
 

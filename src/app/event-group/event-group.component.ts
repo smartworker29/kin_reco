@@ -11,7 +11,6 @@ export class EventGroupComponent implements OnInit {
   event_query: string;
   events;
   isLoaded: boolean = false;
-  imagesLoaded: boolean = false;
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
 
@@ -26,10 +25,6 @@ export class EventGroupComponent implements OnInit {
 
   event_redirect(id) {
     this.router.navigate(['/event', id]);
-  }
-
-  onNgMasonryInit() {
-    window.setTimeout(() => { this.imagesLoaded = true; }, 2000);
   }
 
   get_event_details() {

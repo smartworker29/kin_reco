@@ -18,18 +18,6 @@
     background-size: cover;
 }
 
-.basic-information .text {
-    margin-left: 5%
-}
-
-.event-details .text {
-    margin-left: 5%
-}
-
-.event-details .lower-text {
-        margin-left: calc(5% + 24px)
-    }
-
 .event-details {
     border-top: 1px solid;
     padding-top: 1em;
@@ -52,15 +40,83 @@
     border-top: 1px solid;
 }
 
-.details-button {
-    color: white;
-    background-color: rgb(237, 45, 86);
-    border: none;
-    padding: 5%;
-    margin-top: 5%;
-    border-radius: 10px;
-}
-
 .red-color {
     color: rgb(237, 45, 86);
+}
+
+/* Phones */ 
+@media only screen and (max-width : 767px) {
+    .basic-information .text {
+        margin-left: 5%
+    }
+    
+    .event-details .text {
+        margin-left: 5%
+    }
+    
+    .event-details .lower-text {
+        margin-left: calc(5% + 24px)
+    }
+
+    .details-button {
+        color: white;
+        background-color: rgb(237, 45, 86);
+        border: none;
+        padding: 5%;
+        margin-top: 5%;
+        border-radius: 10px;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-width : 768px) and (max-width : 1280px) {
+    .basic-information .text {
+        margin-left: 4%
+    }
+    
+    .event-details .text {
+        margin-left: 4%
+    }
+    
+    .event-details .lower-text {
+        margin-left: calc(4% + 24px)
+    }
+
+    .details-button {
+        color: white;
+        background-color: rgb(237, 45, 86);
+        border: none;
+        padding: 3%;
+        margin-top: 3%;
+        border-radius: 10px;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width : 1281px) {
+    .desktop-resize {
+        width: 25% !important;
+        margin-left: 37.5%;
+    }
+
+    .basic-information .text {
+        margin-left: 3%
+    }
+    
+    .event-details .text {
+        margin-left: 3%
+    }
+    
+    .event-details .lower-text {
+        margin-left: calc(3% + 24px)
+    }
+
+    .details-button {
+        color: white;
+        background-color: rgb(237, 45, 86);
+        border: none;
+        padding: 2%;
+        margin-top: 2%;
+        border-radius: 10px;
+    }
 }

@@ -15,12 +15,11 @@
       </span>
     </p>
     <ng-masonry-grid
-      (onNgMasonryInit)="onNgMasonryInit($event)"
       [masonryOptions]="{ transitionDuration: '1s', gutter: 5 }"
       [useAnimation]="true"
-      [useImagesLoaded]="true">
+      [useImagesLoaded]="true"
+      [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 1, maxDuration : 2 }">
       <ng-masonry-grid-item class="tiles" *ngFor="let event of events"> 
-        <div *ngIf="imagesLoaded">
         <mat-card class="event-list-cards" (click)="event_redirect(event.id)">
           <img mat-card-image src={{event.image_url}} alt="">
           <mat-card-content>
@@ -29,12 +28,7 @@
             </p>
           </mat-card-content>
         </mat-card>
-        </div>
       </ng-masonry-grid-item>
     </ng-masonry-grid>
-    <div *ngIf="!imagesLoaded">
-      <img alt="loading" src="assets/loading.gif">
-    </div>
-    
   </mat-card-content>
 </mat-card>
