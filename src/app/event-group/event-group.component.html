@@ -18,8 +18,7 @@
       (onNgMasonryInit)="onNgMasonryInit($event)"
       [masonryOptions]="{ transitionDuration: '1s', gutter: 5 }"
       [useAnimation]="true"
-      [useImagesLoaded]="true"
-      [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7 }">
+      [useImagesLoaded]="true">
       <ng-masonry-grid-item class="tiles" *ngFor="let event of events"> 
         <div *ngIf="imagesLoaded">
         <mat-card class="event-list-cards" (click)="event_redirect(event.id)">
