@@ -18,7 +18,7 @@ export class EventGroupComponent implements OnInit {
   }
 
   kin_redirect() {
-    window.location.href='https://www.google.com';
+    window.location.href='http://m.me/kinparenting';
   }
 
   get_event_details() {
