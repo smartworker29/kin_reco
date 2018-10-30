@@ -19,9 +19,9 @@ export class EventComponent implements OnInit {
   }
 
   get_event_details() {
-    let url = "https://r12qhmdri4.execute-api.us-west-1.amazonaws.com/v1/events/" + this.event_id;
+    let url = "https://97ebwdbycd.execute-api.us-west-1.amazonaws.com/v1/events/" + this.event_id;
     const headers = new HttpHeaders()
-        .set('x-api-key', 'k6CY9L2ooB5qc1Jz9yRIb81ehZHixsvVAJ4PEMEi');
+        .set('x-api-key', 'seDqmi1mqn25insmLa0NF404jcDUi79saFHylHVk');
     this.http.get(url, { headers: headers, responseType: 'text' }).subscribe(data => {
       data = data.replace(/\n/g, "");
       data = JSON.parse(data);

@@ -29,7 +29,7 @@ export class EventGroupComponent implements OnInit {
   }
 
   onNgMasonryInit() {
-    window.setTimeout(() => { this.imagesLoaded = true; }, 1500);
+    window.setTimeout(() => { this.imagesLoaded = true; }, 2000);
   }
 
   get_event_details() {
