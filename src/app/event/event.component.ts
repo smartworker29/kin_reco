@@ -9,7 +9,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class EventComponent implements OnInit {
   event_id: string;
-  event;
+  event: any;
+  isLoaded: boolean = false;
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
@@ -23,48 +24,11 @@ export class EventComponent implements OnInit {
         .set('x-api-key', 'k6CY9L2ooB5qc1Jz9yRIb81ehZHixsvVAJ4PEMEi');
     this.http.get(url, { headers: headers, responseType: 'text' }).subscribe(data => {
       data = data.replace(/\n/g, "");
-      data = data.replace("source_url ", "sourceurl");
+      data = JSON.parse(data);
       this.event = data["event"];
-      console.log("Test the data........................................", data);
+      this.isLoaded = true;
     })
   }
-
-    // this.event = {
-    //   "event_id": "408",
-    //   "name": "Museum Scavenger Hunt",
-    //   "description": "Explore ancient Egypts fascinating view of the afterlife through our collection of human and animal mummies, canopic jars, and funerary boats and models. Discover colorful and precious jewelry, pre dynastic pottery, glass and alabaster vessels, bronze too",
-    //   "url": "https://egyptianmuseum.org/workshops/scavenger-hunt",
-    //   "image_url": "https://egyptianmuseum.org/assets/img/pageheaders/header-D3-pyramid.jpg",
-    //   "venue_id": "1",
-    //   "venue": "Rosicrucian Egyptian Museum",
-    //   "host": "",
-    //   "email": "",
-    //   "price": 5,
-    //   "contact_number": "408-947-3635",
-    //   "street": "1664 Park Ave.",
-    //   "city": "San Jose",
-    //   "state": "CA",
-    //   "zip_code": "95191",
-    //   "country": "USA",
-    //   "start_date": "2018-09-22",
-    //   "end_date": "2018-09-22",
-    //   "start_time": "12:30:00",
-    //   "end_time": "14:30:00",
-    //   "min_age": 0,
-    //   "max_age": 99,
-    //   "gender_affinity": 0,
-    //   "classifications": [
-    //       {
-    //           "event_id": "408",
-    //           "classifier": "sandhya",
-    //           "classification1": "15",
-    //           "classification2": "0",
-    //           "timestamp": "2018-08-01 21:37:45"
-    //       }
-    //   ],
-    //   "misc": "recurrence\tThis event occurs  monthly,  on the fourth \tSaturday of January, March, May, July, August, October and December.\tsource_url\thttp://www.bayareaparent.com/Events/index.php/name/Museum-Scavenger-Hunt/event/20907/\tformatted_address\t1660 Park Ave, San Jose, CA 95191, USA"
-    // }
-  // }
 
   format_time(timeString) {
     var H = +timeString.substr(0, 2);
@@ -74,18 +38,30 @@ export class EventComponent implements OnInit {
     return timeString;
   }
 
-  format_price(price) {
-    if(price == "Free" || price == "free" || price == "") {
+  format_price() {
+    if(this.event.price == "Free" || this.event.price == "free" || this.event.price == "") {
       return "Free"
     }
     else {
-      return "From $" + price;
+      return "From $" + this.event.price;
     }
+  }
+
+  format_age() {
+    if(this.event.min_age == 0 && this.event.max_age == 99) {
+      return "Good for all ages";
+    }
+    else {
+      return "Good for " + this.event.min_age + " to " + this.event.max_age + "years";
+    } 
   }
 
   maps_redirect() {
     var search_query = this.event.venue + "," + this.event.street + "," + this.event.city;
-    window.location.href='https://www.google.com/maps?q=' + search_query;
+    window.location.href= 'https://www.google.com/maps?q=' + search_query;
   }
 
+  event_redirect() {
+    window.location.href= this.event.url;
+  }
 }

@@ -44,3 +44,23 @@
 .event-group-description {
     color: rgb(255, 77, 77);
 }
+
+.flex-display {
+    display: flex; 
+  flex-direction: column; 
+  flex-wrap: wrap;
+  height: 100vw;
+  max-height: 800px;
+  font-size: 0; 
+}
+
+.tiles {
+    width: 49%;
+}
+
+.logo {
+    height: 30px;
+    width: 35px;
+    position: relative;
+    top: 10px;
+}

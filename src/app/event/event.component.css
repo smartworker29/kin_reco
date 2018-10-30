@@ -46,3 +46,21 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.details-button-space {
+    text-align: center;
+    border-top: 1px solid;
+}
+
+.details-button {
+    color: white;
+    background-color: rgb(237, 45, 86);
+    border: none;
+    padding: 5%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.red-color {
+    color: rgb(237, 45, 86);
+}

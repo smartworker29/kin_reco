@@ -1,4 +1,4 @@
-<mat-card class="event-group-card">
+<mat-card class="event-group-card" *ngIf="isLoaded">
   <mat-card-header>
     <mat-card-title class="event-header">{{ event_query }} Events</mat-card-title>
   </mat-card-header>
@@ -7,27 +7,35 @@
       <span>
         To see these events and more personalized to you, chat with <b class="kin-link" (click)="kin_redirect()">Kin on Messenger</b>
       </span>
-      <i class="event-group-icon material-icons">child_care</i>
+      <img alt="kin logo" src="assets/kin_logo.jpeg" class="logo">
     </p>
     <p class="event-group-description">
       <span>
           {{ event_query }} Events around South Bay
       </span>
     </p>
-    <p><mat-grid-list cols="2">
-      <mat-grid-tile
-          *ngFor="let event of events"
-          [colspan]="1"
-          [rowspan]="1">
-          <mat-card class="event-list-cards">
-            <img mat-card-image src={{event.image_url}} alt="">
-            <mat-card-content>
-              <p class="event-group-title">
-                {{event.name}}
-              </p>
-            </mat-card-content>
-          </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list></p>
+    <ng-masonry-grid
+      (onNgMasonryInit)="onNgMasonryInit($event)"
+      [masonryOptions]="{ transitionDuration: '1s', gutter: 5 }"
+      [useAnimation]="true"
+      [useImagesLoaded]="true"
+      [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7 }">
+      <ng-masonry-grid-item class="tiles" *ngFor="let event of events"> 
+        <div *ngIf="imagesLoaded">
+        <mat-card class="event-list-cards" (click)="event_redirect(event.id)">
+          <img mat-card-image src={{event.image_url}} alt="">
+          <mat-card-content>
+            <p class="event-group-title">
+              {{event.name}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+        </div>
+      </ng-masonry-grid-item>
+    </ng-masonry-grid>
+    <div *ngIf="!imagesLoaded">
+      <img alt="loading" src="assets/loading.gif">
+    </div>
+    
   </mat-card-content>
 </mat-card>
