@@ -1,14 +1,16 @@
 <mat-card class="event-group-card" *ngIf="isLoaded">
   <mat-card-header>
-    <mat-card-title class="event-header">{{ event_query }} Events</mat-card-title>
+    <div class="banner">
+      <mat-card-title class="event-header">{{ event_query }} Events</mat-card-title>
+      <p class="link-to-kin">
+        <span>
+          To see these events and more personalized to you, chat with <b class="kin-link" (click)="kin_redirect()">Kin on Messenger</b>
+        </span>
+        <img alt="kin logo" src="assets/kin_logo.jpeg" class="logo">
+      </p>
+    </div>
   </mat-card-header>
-  <mat-card-content>
-    <p class="link-to-kin">
-      <span>
-        To see these events and more personalized to you, chat with <b class="kin-link" (click)="kin_redirect()">Kin on Messenger</b>
-      </span>
-      <img alt="kin logo" src="assets/kin_logo.jpeg" class="logo">
-    </p>
+  <mat-card-content class="event-group-content">
     <p class="event-group-description">
       <span>
           {{ event_query }} Events around South Bay
@@ -23,8 +25,16 @@
         <mat-card class="event-list-cards" (click)="event_redirect(event.id)">
           <img mat-card-image src={{event.image_url}} alt="">
           <mat-card-content>
+            <p class="event-date">
+              <span class="text">{{event.dates}}</span>
+              .
+              <span class="lower-text">{{event.start_time}} - {{event.end_time}}</span>
+            </p>
             <p class="event-group-title">
               {{event.name}}
+            </p>
+            <p class="event-venue">
+              {{event.venue}}
             </p>
           </mat-card-content>
         </mat-card>

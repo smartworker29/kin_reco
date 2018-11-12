@@ -27,8 +27,16 @@ export class EventGroupComponent implements OnInit {
     this.router.navigate(['/event', id]);
   }
 
+  format_time(timeString) {
+    var H = +timeString.substr(0, 2);
+    var h = H % 12 || 12;
+    var ampm = (H < 12 || H === 24) ? "AM" : "PM";
+    timeString = h + timeString.substr(2, 3) + ampm;
+    return timeString;
+  }
+
   get_event_details() {
-    let url = "https://97ebwdbycd.execute-api.us-west-1.amazonaws.com/v1/events?q=" + this.event_query;
+    let url = "https://kin-api.kinparenting.com/events?q=" + this.event_query;
     const headers = new HttpHeaders()
         .set('x-api-key', 'seDqmi1mqn25insmLa0NF404jcDUi79saFHylHVk');
     this.http.get(url, { headers: headers, responseType: 'text' }).subscribe(data => {

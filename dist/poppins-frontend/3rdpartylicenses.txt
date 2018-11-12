@@ -348,6 +348,11 @@ THE SOFTWARE.
 
 @angular/material/card
 
+@angular/animations
+MIT
+
+@angular/material/tabs
+
 @angular/core
 MIT
 

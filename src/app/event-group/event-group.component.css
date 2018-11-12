@@ -7,10 +7,27 @@
 
 .event-list-cards {
     margin: 5%;
+    cursor: pointer;
 }
 
 .event-group-title {
     text-align: center;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+
+.event-date {
+    text-align: center;
+    color: rgb(255, 77, 77);
+    font-size: 12px;
+    margin-bottom: 0em;
+}
+
+.event-venue {
+    text-align: center;
+    margin-top: 0em;
+    font-size: 12px;
 }
 
 .mat-card-header {
@@ -21,6 +38,8 @@
     text-align: center;
     font-weight: bold;
     font-size: 18px;
+    margin: 0 !important;
+    padding-top: 5%;
 }
 
 .event-group-icon {
@@ -37,10 +56,11 @@
 
 .event-group-description {
     color: rgb(255, 77, 77);
+    text-align: center;
 }
 
 .flex-display {
-    display: flex; 
+  display: flex; 
   flex-direction: column; 
   flex-wrap: wrap;
   height: 100vw;
@@ -55,6 +75,15 @@
     top: 10px;
 }
 
+.banner {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    text-align: center;
+    width: 86%;
+}
+
 /* Phones */ 
 @media only screen and (max-width : 767px) {
     .tiles {
@@ -62,9 +91,13 @@
     }
 
     .link-to-kin {
-        margin-top: 10% !important;
+        margin-top: 5% !important;
         border-bottom: 1px solid;
         padding-bottom: 5%;
+    }
+
+    .event-group-content {
+        margin-top: 40%;
     }
 }
 
@@ -78,6 +111,10 @@
         border-bottom: 1px solid;
         padding-bottom: 3%;
     }
+
+    .event-group-content {
+        margin-top: 20%;
+    }
 }
 
 /* Desktop */
@@ -89,5 +126,9 @@
     .link-to-kin {
         border-bottom: 1px solid;
         padding-bottom: 3%;
+    }
+
+    .event-group-content {
+        margin-top: 15%;
     }
 }
