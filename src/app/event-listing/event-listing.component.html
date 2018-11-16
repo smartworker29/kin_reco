@@ -1,18 +1,28 @@
-<mat-tab-group mat-stretch-tabs disableRipple (selectedTabChange)="onTabClick($event)">
-  <mat-tab label="Explore">
-    <img src="assets/loading.gif" *ngIf="!isExplore" class="loading-gif">
-    <app-masonsry-view *ngIf="isExplore" [events]=events_explore></app-masonsry-view>
-  </mat-tab>
-  <mat-tab label="Today" (click)="get_today_events()">
-    <img src="assets/loading.gif" *ngIf="!isToday" class="loading-gif">
-    <app-masonsry-view *ngIf="isToday" [events]=events_today></app-masonsry-view>
-  </mat-tab>
-  <mat-tab label="Tomorrow" (click)="get_tomorrow_events()">
-    <img src="assets/loading.gif" *ngIf="!isTomorrow" class="loading-gif">
-    <app-masonsry-view *ngIf="isTomorrow" [events]=events_tomorrow></app-masonsry-view>
-  </mat-tab>
-  <mat-tab label="Weekend" (click)="get_weekend_events()">
-    <img src="assets/loading.gif" *ngIf="!isWeekend" class="loading-gif">
-    <app-masonsry-view *ngIf="isWeekend" [events]=events_weekend></app-masonsry-view>
-  </mat-tab>
-</mat-tab-group>
+<div class="banner">
+  <p class="link-to-kin">
+    <span>
+      To discover and plan for many more family-friendly events personalized to you, chat with <b class="kin-link" (click)="kin_redirect()">Kin on Messenger</b>
+    </span>
+    <img alt="kin logo" src="assets/kin_logo.jpeg" class="logo">
+  </p>
+</div>
+<div class="event-listing-card">
+  <mat-tab-group mat-stretch-tabs disableRipple (selectedTabChange)="onTabClick($event)">
+    <mat-tab label="Explore">
+      <img src="assets/loading.gif" *ngIf="!isExplore" class="loading-gif">
+      <app-masonsry-view *ngIf="isExplore" [events]=events_explore></app-masonsry-view>
+    </mat-tab>
+    <mat-tab label="Today" (click)="get_today_events()">
+      <img src="assets/loading.gif" *ngIf="!isToday" class="loading-gif">
+      <app-masonsry-view *ngIf="isToday" [events]=events_today></app-masonsry-view>
+    </mat-tab>
+    <mat-tab label="Tomorrow" (click)="get_tomorrow_events()">
+      <img src="assets/loading.gif" *ngIf="!isTomorrow" class="loading-gif">
+      <app-masonsry-view *ngIf="isTomorrow" [events]=events_tomorrow></app-masonsry-view>
+    </mat-tab>
+    <mat-tab label="Weekend" (click)="get_weekend_events()">
+      <img src="assets/loading.gif" *ngIf="!isWeekend" class="loading-gif">
+      <app-masonsry-view *ngIf="isWeekend" [events]=events_weekend></app-masonsry-view>
+    </mat-tab>
+  </mat-tab-group>
+</div>

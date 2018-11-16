@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 
+declare let ga: any;
 @Component({
   selector: 'app-event-listing',
   templateUrl: './event-listing.component.html',
@@ -22,7 +23,14 @@ export class EventListingComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
               private datePipe: DatePipe,
-              private router: Router) { }
+              private router: Router) { 
+                this.router.events.subscribe(event => {
+                  if (event instanceof NavigationEnd) {
+                    ga('set', 'page', event.urlAfterRedirects);
+                    ga('send', 'pageview');
+                  }
+                });
+              }
 
   ngOnInit() {
     this.get_explore_event_details();
@@ -34,7 +42,7 @@ export class EventListingComponent implements OnInit {
     }
     else {
       var d = Date.now();
-      let url = "https://kin-api.kinparenting.com/events?event_date_start=" + this.datePipe.transform(d, 'yyyy-MM-dd') + "&event_date_range=30"; 
+      let url = "https://kin-api.kinparenting.com/events?event_date_start=" + this.datePipe.transform(d, 'yyyy-MM-dd') + "&event_date_range=30&limit=113"; 
       const headers = new HttpHeaders()
           .set('x-api-key', 'seDqmi1mqn25insmLa0NF404jcDUi79saFHylHVk');
       this.http.get(url, { headers: headers, responseType: 'text' }).subscribe(data => {
@@ -114,5 +122,12 @@ export class EventListingComponent implements OnInit {
     if(event.index == 3) {
       this.get_weekend_events();
     }
+  }
+
+  kin_redirect() {
+    ga('send', 'redirect', {
+      type: 'Messenger Link'
+    });
+    window.location.href='http://m.me/kinparenting';
   }
 }

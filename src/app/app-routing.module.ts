@@ -6,8 +6,8 @@ import { EventListingComponent } from './event-listing/event-listing.component';
 
 const routes: Routes = [
   { path: 'event/:id', component: EventComponent },
-  { path: 'event-group/:query', component: EventGroupComponent },
-  { path: 'event-listing', component: EventListingComponent }
+  { path: 'events/:query', component: EventGroupComponent },
+  { path: 'events', component: EventListingComponent }
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+declare let ga: any;
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
@@ -27,6 +28,11 @@ export class EventComponent implements OnInit {
       data = JSON.parse(data);
       this.event = data["event"];
       this.isLoaded = true;
+      ga('send', 'event', {
+        eventAction: 'view',
+        eventName: this.event.name,
+        eventId: this.event_id
+      });
     })
   }
 
@@ -65,6 +71,9 @@ export class EventComponent implements OnInit {
   }
 
   event_redirect() {
+    ga('send', 'redirect', {
+      type: 'More Details Link'
+    });
     window.location.href= this.event.url;
   }
 }

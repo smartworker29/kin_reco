@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+declare let ga: any;
 @Component({
   selector: 'app-event-group',
   templateUrl: './event-group.component.html',
@@ -12,7 +13,14 @@ export class EventGroupComponent implements OnInit {
   events;
   isLoaded: boolean = false;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { 
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
+      }
+    });
+  }
 
   ngOnInit() {
     this.event_query = this.route.snapshot.params['query'];
@@ -20,6 +28,9 @@ export class EventGroupComponent implements OnInit {
   }
 
   kin_redirect() {
+    ga('send', 'redirect', {
+      type: 'Messenger Link'
+    });
     window.location.href='http://m.me/kinparenting';
   }
 
@@ -45,6 +56,10 @@ export class EventGroupComponent implements OnInit {
         this.events = data["events"];
         this.isLoaded = true;
     })
+  }
+
+  capital_name(query) {
+    return query;
   }
 }
 

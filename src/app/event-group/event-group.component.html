@@ -1,10 +1,9 @@
 <mat-card class="event-group-card" *ngIf="isLoaded">
   <mat-card-header>
     <div class="banner">
-      <mat-card-title class="event-header">{{ event_query }} Events</mat-card-title>
       <p class="link-to-kin">
         <span>
-          To see these events and more personalized to you, chat with <b class="kin-link" (click)="kin_redirect()">Kin on Messenger</b>
+          To discover and plan for many more family-friendly events personalized to you, chat with <b class="kin-link" (click)="kin_redirect()">Kin_on_Messenger</b>
         </span>
         <img alt="kin logo" src="assets/kin_logo.jpeg" class="logo">
       </p>
@@ -13,7 +12,7 @@
   <mat-card-content class="event-group-content">
     <p class="event-group-description">
       <span>
-          {{ event_query }} Events around South Bay
+          {{ event_query }} Events Around South Bay
       </span>
     </p>
     <ng-masonry-grid
