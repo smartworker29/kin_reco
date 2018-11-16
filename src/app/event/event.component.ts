@@ -29,9 +29,10 @@ export class EventComponent implements OnInit {
       this.event = data["event"];
       this.isLoaded = true;
       ga('send', 'event', {
-        eventAction: 'view',
-        eventName: this.event.name,
-        eventId: this.event_id
+        eventCategory: 'Views',
+        eventLabel: 'Event Details',
+        eventAction: 'View a specific event page',
+        eventValue: this.event_id
       });
     })
   }
@@ -71,8 +72,11 @@ export class EventComponent implements OnInit {
   }
 
   event_redirect() {
-    ga('send', 'redirect', {
-      type: 'More Details Link'
+    ga('send', 'event', {
+      eventCategory: 'Clicks',
+      eventLabel: 'More Details',
+      eventAction: 'Click on more details button',
+      eventValue: this.event_id
     });
     window.location.href= this.event.url;
   }

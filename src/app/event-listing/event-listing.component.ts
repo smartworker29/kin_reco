@@ -125,8 +125,10 @@ export class EventListingComponent implements OnInit {
   }
 
   kin_redirect() {
-    ga('send', 'redirect', {
-      type: 'Messenger Link'
+    ga('send', 'event', {
+      eventCategory: 'Clicks',
+      eventLabel: 'Kin Redirect',
+      eventAction: 'Click on kin redirect button'
     });
     window.location.href='http://m.me/kinparenting';
   }
