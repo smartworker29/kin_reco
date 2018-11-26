@@ -13,6 +13,8 @@ import { EventComponent } from './event/event.component';
 import { EventGroupComponent } from './event-group/event-group.component';
 import { EventListingComponent } from './event-listing/event-listing.component';
 import { MasonsryViewComponent } from './masonsry-view/masonsry-view.component';
+import { HomeComponent } from './home/home.component';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { MasonsryViewComponent } from './masonsry-view/masonsry-view.component';
     EventComponent,
     EventGroupComponent,
     EventListingComponent,
-    MasonsryViewComponent
+    MasonsryViewComponent,
+    HomeComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

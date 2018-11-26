@@ -1,0 +1,92 @@
+@media only screen and (max-width : 767px) {
+    .home-page {
+        margin: 7%;
+    }
+    .home-body-div {
+        width: 100%;
+    }
+    .home-image-div {
+        color: white;
+    }
+    .home-image {
+        width: 100%;
+    }
+    .home-header {
+        font-weight: bold;
+        font-size: 35px;
+        color: #414141;
+    }
+    .home-body {
+        font-size: 15px;
+        color: #414141;
+        letter-spacing: 0.1em;
+    }
+    .home-privacy {
+        position: absolute;
+        bottom: 5%;   
+    }
+}
+
+/* Tablets */
+@media only screen and (min-width : 768px) and (max-width : 1280px) {
+    .home-page {
+        margin: 1%;
+        margin-top: 10%;
+    }
+    .home-body-div {
+        width: 45%;
+    }
+    .home-image-div {
+        color: white;
+    }
+    .home-image {
+        width: 55%;
+        float: right;
+    }
+    .home-header {
+        font-weight: bold;
+        font-size: 55px;
+        color: #414141;
+    }
+    .home-body {
+        font-size: 18px;
+        color: #414141;
+        letter-spacing: 0.1em;
+    }
+    .home-privacy {
+        position: absolute;
+        bottom: 5%;   
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width : 1281px) {
+    .home-page {
+        margin: 1%;
+        margin-top: 5%;
+    }
+    .home-body-div {
+        width: 45%;
+    }
+    .home-image-div {
+        color: white;
+    }
+    .home-image {
+        width: 55%;
+        float: right;
+    }
+    .home-header {
+        font-weight: bold;
+        font-size: 55px;
+        color: #414141;
+    }
+    .home-body {
+        font-size: 18px;
+        color: #414141;
+        letter-spacing: 0.1em;
+    }
+    .home-privacy {
+        position: absolute;
+        bottom: 5%;   
+    }
+}

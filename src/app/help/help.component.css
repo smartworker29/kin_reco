@@ -1,0 +1,39 @@
+.help-heading {
+    color: #F94B54;
+    letter-spacing: 0.05em;
+}
+
+.help-list {
+    letter-spacing: 0.05em;
+}
+
+.help-privacy {
+    margin-top: 10%;
+}
+
+/* Phones */ 
+@media only screen and (max-width : 767px) {
+    .help-page {
+        margin: 5%;
+        font-family: Arial,Helvetica,sans-serif;
+        line-height: 1.5em;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-width : 768px) and (max-width : 1280px) {
+    .help-page {
+        margin: 10%;
+        font-family: Arial,Helvetica,sans-serif;
+        line-height: 1.5em;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width : 1281px) {
+    .help-page {
+        margin: 10%;
+        font-family: Arial,Helvetica,sans-serif;
+        line-height: 1.5em;
+    }
+}
