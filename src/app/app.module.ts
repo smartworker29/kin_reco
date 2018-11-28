@@ -6,6 +6,7 @@ import { NgMasonryGridModule } from 'ng-masonry-grid';
 import { DatePipe } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { EventListingComponent } from './event-listing/event-listing.component';
 import { MasonsryViewComponent } from './masonsry-view/masonsry-view.component';
 import { HomeComponent } from './home/home.component';
 import { HelpComponent } from './help/help.component';
+import { DataEntryComponent } from './data-entry/data-entry.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HelpComponent } from './help/help.component';
     EventListingComponent,
     MasonsryViewComponent,
     HomeComponent,
-    HelpComponent
+    HelpComponent,
+    DataEntryComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ import { HelpComponent } from './help/help.component';
     MatCardModule,
     NgMasonryGridModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
