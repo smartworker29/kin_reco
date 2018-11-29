@@ -105,11 +105,11 @@ export class DataEntryComponent implements OnInit {
         Validators.required,
         this.checkDate
       ]),
-      'start_time': new FormControl('', [
+      'start_time': new FormControl('00:00:00', [
         Validators.required,
         this.checkTime
       ]),
-      'end_time': new FormControl('', [
+      'end_time': new FormControl('23:59:00', [
         Validators.required,
         this.checkTime
       ]),
