@@ -7,6 +7,7 @@
     <div *ngIf="submitted && f.name.errors" class="text-error">
         <div *ngIf="submitted && f.name.errors.required">Event Name is required</div>
         <div *ngIf="submitted && f.name.errors.unicode">Detected '\' might have unicode character</div>
+        <div *ngIf="submitted && f.name.errors.delimiters">Please replace "word" with 'word'</div>
     </div>
   </div>
 
@@ -131,6 +132,7 @@
     <div *ngIf="submitted && f.description.errors" class="text-error">
         <div *ngIf="submitted && f.description.errors.required">Description is required</div>
         <div *ngIf="submitted && f.name.errors.unicode">Detected '\' might have unicode character</div>
+        <div *ngIf="submitted && f.name.errors.delimiters">Please replace "word" with 'word'</div>
     </div>
   </div>
 
@@ -215,10 +217,10 @@
   <div class="form-group">
     <button class="btn btn-primary">Submit</button>
   </div>
-  <div class="form-group">
-    <button class="btn btn-primary" (click)="onReset()">Reset</button>
-  </div>
 </form>
+<div class="form-group">
+  <button class="btn btn-primary" (click)="onReset()">Reset</button>
+</div>
 
 <div *ngIf="showServerResponse">
   <h3>Server Response:</h3>

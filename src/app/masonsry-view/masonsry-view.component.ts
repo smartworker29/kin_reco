@@ -7,11 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./masonsry-view.component.css']
 })
 export class MasonsryViewComponent implements OnInit {
+  showLayout: boolean = false;
   @Input() events;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.showLayout = true;
+    }, 2000);
   }
 
   event_redirect(id) {

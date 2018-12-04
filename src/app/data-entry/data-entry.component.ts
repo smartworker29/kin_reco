@@ -25,11 +25,15 @@ export class DataEntryComponent implements OnInit {
         return;
     }
     
+    var data = JSON.stringify(this.eventForm.value);
+    data = data.replace(/[\u2018\u2019]/g, "'")
+                .replace(/[\u201C\u201D]/g, '"');
+  
     let url = "https://kin-api.kinparenting.com/events/";
     const headers = new HttpHeaders()
         .set('x-api-key', 'seDqmi1mqn25insmLa0NF404jcDUi79saFHylHVk')
         .set('Content-Type',  'application/json');
-    this.http.post(url, JSON.stringify(this.eventForm.value), { headers: headers, responseType: 'text' }).subscribe(response => {
+    this.http.post(url, data, { headers: headers, responseType: 'text'}).subscribe(response => {
         this.serverResponse = response;
         this.showServerResponse = true;
     })
@@ -37,13 +41,22 @@ export class DataEntryComponent implements OnInit {
 
   onReset() {
     this.createForm();
-    this.showServerResponse = false;
     this.submitted = false;
+    this.showServerResponse = false;
   }
 
   checkUnicode(control: AbstractControl): { [key: string]: boolean } | null {
     if (control.value.indexOf("\\") !== -1 ) {
         return { 'unicode': true };
+    }
+    return null;
+  }
+
+  checkDelimiters(control: AbstractControl): { [key: string]: boolean } | null {
+    var word = control.value.replace(/[\u2018\u2019]/g, "'")
+                .replace(/[\u201C\u201D]/g, '"');
+    if (word.indexOf('"') !== -1 ) {
+        return { 'delimiters': true };
     }
     return null;
   }
@@ -77,7 +90,8 @@ export class DataEntryComponent implements OnInit {
     this.eventForm = new FormGroup({
       'name': new FormControl('', [
         Validators.required,
-        this.checkUnicode
+        this.checkUnicode,
+        this.checkDelimiters
       ]),
       'url': new FormControl('', [
         Validators.required
@@ -115,7 +129,8 @@ export class DataEntryComponent implements OnInit {
       ]),
       'description': new FormControl('', [
         Validators.required,
-        this.checkUnicode
+        this.checkUnicode,
+        this.checkDelimiters
       ]),
       'min_age': new FormControl(0, []),
       'max_age': new FormControl(99, []),
