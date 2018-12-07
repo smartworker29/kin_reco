@@ -17,6 +17,7 @@ import { MasonsryViewComponent } from './masonsry-view/masonsry-view.component';
 import { HomeComponent } from './home/home.component';
 import { HelpComponent } from './help/help.component';
 import { DataEntryComponent } from './data-entry/data-entry.component';
+import { VenuesComponent } from './venues/venues.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DataEntryComponent } from './data-entry/data-entry.component';
     MasonsryViewComponent,
     HomeComponent,
     HelpComponent,
-    DataEntryComponent
+    DataEntryComponent,
+    VenuesComponent
   ],
   imports: [
     BrowserModule,

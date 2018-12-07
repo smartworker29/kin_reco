@@ -1,4 +1,4 @@
-.event-card {
+.venue-card {
     font-size: 15px;
     color: rgb(90, 91, 91);
 }
@@ -7,7 +7,7 @@
     display: contents;
 }
 
-.event-header {
+.venue-header {
     text-align: center;
     font-weight: bold;
     font-size: 18px;
@@ -18,7 +18,7 @@
     background-size: cover;
 }
 
-.event-details {
+.venue-details {
     border-top: 1px solid;
     padding-top: 1em;
 }
@@ -50,11 +50,11 @@
         margin-left: 5%
     }
     
-    .event-details .text {
+    .venue-details .text {
         margin-left: 5%
     }
     
-    .event-details .lower-text {
+    .venue-details .lower-text {
         margin-left: calc(5% + 24px)
     }
 
@@ -79,11 +79,11 @@
         margin-left: 4%
     }
     
-    .event-details .text {
+    .venue-details .text {
         margin-left: 4%
     }
     
-    .event-details .lower-text {
+    .venue-details .lower-text {
         margin-left: calc(4% + 24px)
     }
 
@@ -108,11 +108,11 @@
         margin-left: 3%
     }
     
-    .event-details .text {
+    .venue-details .text {
         margin-left: 3%
     }
     
-    .event-details .lower-text {
+    .venue-details .lower-text {
         margin-left: calc(3% + 24px)
     }
 

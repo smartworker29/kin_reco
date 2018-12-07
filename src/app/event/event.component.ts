@@ -20,7 +20,7 @@ export class EventComponent implements OnInit {
   }
 
   get_event_details() {
-    let url = "https://kin-api.kinparenting.com/events/" + this.event_id;
+    let url = "http://ec2-18-144-9-114.us-west-1.compute.amazonaws.com/events/" + this.event_id;
     const headers = new HttpHeaders()
         .set('x-api-key', 'seDqmi1mqn25insmLa0NF404jcDUi79saFHylHVk');
     this.http.get(url, { headers: headers, responseType: 'text' }).subscribe(data => {
