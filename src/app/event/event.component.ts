@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 
 declare let ga: any;
 @Component({
@@ -12,7 +13,7 @@ export class EventComponent implements OnInit {
   event_id: string;
   event: any;
   isLoaded: boolean = false;
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private titleService: Title) { }
 
   ngOnInit() {
     this.event_id = this.route.snapshot.params['id'];
@@ -20,7 +21,7 @@ export class EventComponent implements OnInit {
   }
 
   get_event_details() {
-    let url = "http://ec2-18-144-9-114.us-west-1.compute.amazonaws.com/events/" + this.event_id;
+    let url = "https://kin-api.kinparenting.com/events/" + this.event_id;
     const headers = new HttpHeaders()
         .set('x-api-key', 'seDqmi1mqn25insmLa0NF404jcDUi79saFHylHVk');
     this.http.get(url, { headers: headers, responseType: 'text' }).subscribe(data => {
@@ -34,6 +35,7 @@ export class EventComponent implements OnInit {
         eventAction: 'View a specific event page',
         eventValue: this.event_id
       });
+      this.titleService.setTitle(this.event.name);
     })
   }
 

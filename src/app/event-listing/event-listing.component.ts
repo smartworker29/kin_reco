@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 declare let ga: any;
 @Component({
@@ -23,7 +24,8 @@ export class EventListingComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
               private datePipe: DatePipe,
-              private router: Router) { 
+              private router: Router,
+              private titleService: Title) { 
                 this.router.events.subscribe(event => {
                   if (event instanceof NavigationEnd) {
                     ga('set', 'page', event.urlAfterRedirects);
@@ -33,6 +35,7 @@ export class EventListingComponent implements OnInit {
               }
 
   ngOnInit() {
+    this.titleService.setTitle("Events");
     this.get_explore_event_details();
   }
 

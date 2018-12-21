@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-venues',
@@ -11,7 +12,9 @@ export class VenuesComponent implements OnInit {
   venue_id: string;
   venue: any;
   isLoaded: boolean = true;
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, 
+              private http: HttpClient,
+              private titleService: Title) { }
 
   ngOnInit() {
     this.venue_id = this.route.snapshot.params['id'];
@@ -33,6 +36,7 @@ export class VenuesComponent implements OnInit {
     //     venueAction: 'View a specific venue page',
     //     venueValue: this.venue_id
     //   });
+    // this.titleService.setTitle(this.venue.name);
     // })
     this.venue = {
       "id": 442,

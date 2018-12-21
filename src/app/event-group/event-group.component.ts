@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 
 declare let ga: any;
 @Component({
@@ -13,7 +14,10 @@ export class EventGroupComponent implements OnInit {
   events;
   isLoaded: boolean = false;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { 
+  constructor(private route: ActivatedRoute, 
+              private http: HttpClient, 
+              private router: Router,
+              private titleService: Title) { 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         ga('set', 'page', event.urlAfterRedirects);
@@ -24,6 +28,7 @@ export class EventGroupComponent implements OnInit {
 
   ngOnInit() {
     this.event_query = this.route.snapshot.params['query'];
+    this.titleService.setTitle(this.event_query);
     this.get_event_details();
   }
 
